@@ -1,184 +1,704 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>MediExplain</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Création de site web — Mini Boutique WhatsApp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* Page-specific overrides */
-    .consent-wrap { padding: 16px; }
-    .consent-card { padding: 28px 20px; }
-    .logo-glow { text-shadow: 0 0 30px rgba(0,212,170,0.4); }
-    .step-indicator { display: flex; gap: 6px; margin-bottom: 20px; }
-    .step-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border2); transition: all 0.3s; }
-    .step-dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
-    .step-dot.done { background: var(--accent-d); }
-    .feature-list { list-style: none; margin-bottom: 20px; }
-    .feature-list li { display: flex; gap: 8px; align-items: flex-start; font-size: 0.8rem; color: var(--text2); padding: 5px 0; }
-    .feature-list li::before { content: "✓"; color: var(--accent); font-weight: 800; flex-shrink: 0; margin-top: 1px; }
-    .name-section { margin-bottom: 16px; }
-    .or-divider { text-align: center; font-size: 0.75rem; color: var(--text3); margin: 12px 0; position: relative; }
-    .or-divider::before, .or-divider::after { content: ''; position: absolute; top: 50%; width: 40%; height: 1px; background: var(--border); }
-    .or-divider::before { left: 0; }
-    .or-divider::after { right: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:   #FFFBF4;
+      --green:   #163D28;
+      --green2:  #1E5438;
+      --gold:    #C9933A;
+      --gold2:   #E8B86D;
+      --text:    #1A120A;
+      --muted:   #6B5D52;
+      --card:    #FFFFFF;
+      --border:  #EDE3D5;
+      --wa:      #25D366;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.5rem;
+      background: rgba(22,61,40,0.96);
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 700;
+      color: var(--gold2);
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: #fff; }
+    .nav-demo-btn {
+      font-size: 0.78rem; font-weight: 500;
+      background: var(--gold); color: #fff;
+      border: none; border-radius: 100px;
+      padding: 0.45rem 1.1rem; cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .nav-demo-btn:hover { background: var(--gold2); }
+
+    /* ── HERO ── */
+    #vitrine {
+      min-height: 100vh;
+      background: var(--green);
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 7rem 1.5rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    #vitrine::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,147,58,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(201,147,58,0.15);
+      border: 1px solid rgba(201,147,58,0.35);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em;
+      color: var(--gold2); text-transform: uppercase;
+      margin-bottom: 1.8rem;
+    }
+    .hero-badge::before { content: '✦'; font-size: 0.65rem; }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 8vw, 4.2rem);
+      font-weight: 700; line-height: 1.08;
+      color: #fff;
+      max-width: 680px;
+      margin-bottom: 1.4rem;
+    }
+    h1 em {
+      font-style: italic; color: var(--gold2);
+    }
+    .hero-sub {
+      font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.72);
+      max-width: 480px; line-height: 1.65;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+      justify-content: center; margin-bottom: 2.8rem;
+    }
+    .pill {
+      display: flex; align-items: center; gap: 0.35rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.8rem; color: rgba(255,255,255,0.85);
+    }
+    .pill-icon { color: var(--gold2); font-size: 0.9rem; }
+
+    .cta-group { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--gold); color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem; font-weight: 600;
+      padding: 0.85rem 2rem; border-radius: 100px;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(201,147,58,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,147,58,0.4); }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem; font-weight: 500;
+      padding: 0.85rem 2rem; border-radius: 100px;
+      text-decoration: none; border: 1px solid rgba(255,255,255,0.25);
+      cursor: pointer; transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); }
+
+    /* Scroll indicator */
+    .scroll-hint {
+      margin-top: 3.5rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+      color: rgba(255,255,255,0.35); font-size: 0.72rem; letter-spacing: 0.08em;
+    }
+    .scroll-arrow {
+      width: 24px; height: 24px;
+      border-right: 1px solid rgba(255,255,255,0.25);
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      transform: rotate(45deg);
+      animation: bounce 1.8s infinite;
+    }
+    @keyframes bounce { 0%,100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(5px); } }
+
+    /* ── HOW IT WORKS ── */
+    #steps {
+      padding: 5rem 1.5rem;
+      background: #fff;
+    }
+    .section-label {
+      text-align: center;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      font-weight: 700; text-align: center;
+      color: var(--green); margin-bottom: 3rem;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 2rem; max-width: 820px; margin: 0 auto;
+    }
+    .step-card {
+      display: flex; flex-direction: column; gap: 1rem;
+      padding: 2rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--cream);
+      position: relative;
+    }
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem; font-weight: 700;
+      color: var(--gold2); opacity: 0.4;
+      line-height: 1; position: absolute; top: 1rem; right: 1.5rem;
+    }
+    .step-icon {
+      font-size: 2rem;
+    }
+    .step-title {
+      font-weight: 600; font-size: 1rem; color: var(--green);
+    }
+    .step-desc {
+      font-size: 0.87rem; color: var(--muted); line-height: 1.6;
+    }
+
+    /* ── DEMO SECTION ── */
+    #demo {
+      padding: 5rem 1.5rem;
+      background: var(--cream);
+    }
+    .demo-header {
+      text-align: center; margin-bottom: 0.5rem;
+    }
+    .demo-tag {
+      display: inline-block;
+      background: #E8F5ED; color: #1E5438;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; border-radius: 100px;
+      padding: 0.3rem 0.9rem; margin-bottom: 1rem;
+    }
+
+    /* Shop header */
+    .shop-frame {
+      max-width: 700px; margin: 2rem auto 0;
+      border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.07);
+      background: #fff;
+    }
+    .shop-topbar {
+      background: var(--green);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .shop-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-weight: 700;
+      color: var(--gold2); letter-spacing: 0.04em;
+    }
+    .shop-tagline {
+      font-size: 0.8rem; color: rgba(255,255,255,0.65);
+      margin-top: 0.2rem;
+    }
+    .shop-contact-bar {
+      background: var(--green2);
+      padding: 0.6rem 1.5rem;
+      display: flex; justify-content: center; align-items: center; gap: 0.5rem;
+      font-size: 0.78rem; color: rgba(255,255,255,0.8);
+    }
+    .shop-contact-bar a { color: var(--gold2); text-decoration: none; font-weight: 500; }
+
+    .shop-body { padding: 1.5rem; }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    @media (min-width: 520px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .product-card {
+      border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      background: var(--cream);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .product-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+
+    .product-img {
+      width: 100%; aspect-ratio: 1/1; object-fit: cover;
+      background: linear-gradient(135deg, #e8dcc8, #d4c4a8);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+    }
+    .product-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+    }
+
+    .product-info { padding: 0.75rem; }
+    .product-name {
+      font-size: 0.82rem; font-weight: 600; color: var(--green);
+      margin-bottom: 0.2rem; line-height: 1.3;
+    }
+    .product-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 700; color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .btn-wa {
+      display: flex; align-items: center; justify-content: center; gap: 0.3rem;
+      width: 100%;
+      background: var(--wa); color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem; font-weight: 600;
+      padding: 0.5rem;
+      border-radius: 8px; border: none; cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-wa:hover { opacity: 0.88; }
+    .wa-icon { font-size: 0.9rem; }
+
+    /* Shop footer */
+    .shop-footer {
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      font-size: 0.75rem; color: var(--muted);
+    }
+    .shop-footer strong { color: var(--green); }
+
+    /* Demo caption */
+    .demo-caption {
+      text-align: center; margin-top: 1.5rem;
+      font-size: 0.82rem; color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── PRICING ── */
+    #pricing {
+      padding: 5rem 1.5rem;
+      background: var(--green);
+      text-align: center;
+    }
+    #pricing .section-title { color: #fff; }
+    #pricing .section-label { color: var(--gold2); }
+
+    .price-card {
+      max-width: 380px; margin: 0 auto;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,147,58,0.3);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+    }
+    .price-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem; font-weight: 700;
+      color: var(--gold2); line-height: 1;
+      margin: 1rem 0 0.3rem;
+    }
+    .price-unit { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 2rem; }
+    .price-features { list-style: none; text-align: left; margin-bottom: 2rem; }
+    .price-features li {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 0.88rem; color: rgba(255,255,255,0.8);
+      padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .price-features li::before {
+      content: '✓'; color: var(--gold2);
+      font-weight: 700; flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 1.5rem;
+      text-align: center;
+      background: #0D2419;
+      font-size: 0.8rem; color: rgba(255,255,255,0.4);
+    }
+    footer strong { color: var(--gold2); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-badge { animation: fadeUp 0.5s ease both; }
+    h1           { animation: fadeUp 0.5s 0.1s ease both; }
+    .hero-sub    { animation: fadeUp 0.5s 0.2s ease both; }
+    .hero-pills  { animation: fadeUp 0.5s 0.3s ease both; }
+    .cta-group   { animation: fadeUp 0.5s 0.4s ease both; }
+    .scroll-hint { animation: fadeUp 0.5s 0.55s ease both; }
+
+    /* Mobile tweaks */
+    @media (max-width: 420px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
   </style>
 </head>
 <body>
-<div class="consent-wrap">
-  <div class="consent-card">
-    <!-- Logo -->
-    <div class="consent-logo logo-glow" id="logo">MediExplain</div>
-    <div class="consent-tagline" id="tagline">Comprendre vos résultats médicaux, simplement.</div>
 
-    <!-- Step indicator -->
-    <div class="step-indicator">
-      <div class="step-dot active" id="dot1"></div>
-      <div class="step-dot" id="dot2"></div>
-      <div class="step-dot" id="dot3"></div>
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo"><span>Création de</span> Site Web</div>
+  <a class="nav-demo-btn" href="#demo">Voir la démo ↓</a>
+</nav>
+
+<!-- ── HERO / VITRINE ── -->
+<section id="vitrine">
+  <div class="hero-badge">Service WhatsApp Commerce</div>
+  <h1>Je crée votre <em>mini boutique</em> intelligente WhatsApp</h1>
+  <p class="hero-sub">
+    Vos clients parcourent vos produits, choisissent, et commandent directement sur WhatsApp — sans application, sans abonnement.
+  </p>
+
+  <div class="hero-pills">
+    <div class="pill"><span class="pill-icon">⚡</span> Livré en 48h</div>
+    <div class="pill"><span class="pill-icon">📱</span> 100 % mobile</div>
+    <div class="pill"><span class="pill-icon">🔗</span> Lien partageable</div>
+    <div class="pill"><span class="pill-icon">♾️</span> Pas d'abonnement</div>
+  </div>
+
+  <div class="cta-group">
+    <a class="btn-primary"
+       href="https://wa.me/22891547843?text=Bonjour+Esso%2C+je+veux+ma+mini+boutique+WhatsApp+%F0%9F%9B%92"
+       target="_blank">
+      💬 Je veux ma boutique
+    </a>
+    <a class="btn-secondary" href="#demo">Voir la démo →</a>
+  </div>
+
+  <div class="scroll-hint">
+    <span>DÉCOUVREZ</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ── STEPS ── -->
+<section id="steps">
+  <div class="section-label">Comment ça marche</div>
+  <h2 class="section-title">Simple. Rapide. Efficace.</h2>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-icon">📋</div>
+      <div class="step-title">Envoyez vos produits</div>
+      <p class="step-desc">Photos, noms, prix, votre numéro WhatsApp — c'est tout ce dont j'ai besoin.</p>
     </div>
-
-    <!-- Step 1: Language -->
-    <div id="step1">
-      <div class="form-label" style="margin-bottom:10px">🌍 Choisissez votre langue</div>
-      <div class="lang-row">
-        <button class="lang-btn active" onclick="selectLang('fr')">🇫🇷 Français</button>
-        <button class="lang-btn" onclick="selectLang('en')">🇬🇧 English</button>
-        <button class="lang-btn" onclick="selectLang('ar')">🇸🇦 العربية</button>
-        <button class="lang-btn" onclick="selectLang('es')">🇪🇸 Español</button>
-      </div>
-      <ul class="feature-list" id="featureList">
-        <li>Analyse de textes et images médicaux par IA</li>
-        <li>Radiographies, scanners, IRM, échographies</li>
-        <li>Explications en langage simple</li>
-        <li>Données 100% locales sur votre appareil</li>
-      </ul>
-      <button class="btn btn-primary btn-full" onclick="goStep(2)">Continuer →</button>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-icon">🎨</div>
+      <div class="step-title">Je crée votre boutique</div>
+      <p class="step-desc">Une page web élégante avec vos produits, votre marque et vos couleurs. Prête en 48h.</p>
     </div>
-
-    <!-- Step 2: Consent -->
-    <div id="step2" style="display:none">
-      <div class="consent-badges" id="badges">
-        <span class="badge badge-green">🔒 RGPD</span>
-        <span class="badge badge-blue">🏥 HIPAA</span>
-        <span class="badge badge-gold">🌍 Loi Africaine</span>
-      </div>
-      <div class="consent-text" id="consentText">
-        MediExplain respecte le RGPD (Europe), HIPAA (USA) et les lois africaines de protection des données. Vos données restent sur votre appareil uniquement.
-      </div>
-      <label class="check-wrap">
-        <input type="checkbox" id="consentCheck" onchange="checkConsent()">
-        <span id="consentCheckLabel">J'accepte la politique de confidentialité et le traitement de mes données médicales</span>
-      </label>
-      <div style="display:flex; gap:8px;">
-        <button class="btn btn-secondary" onclick="goStep(1)" style="flex:0 0 auto; padding:12px 16px;">←</button>
-        <button class="btn btn-primary" id="consentBtn" onclick="goStep(3)" disabled style="flex:1">Continuer →</button>
-      </div>
-    </div>
-
-    <!-- Step 3: Name -->
-    <div id="step3" style="display:none">
-      <div class="name-section">
-        <div class="form-label" id="nameLabel">👤 Votre prénom</div>
-        <input type="text" class="form-input" id="nameInput" placeholder="Ex : Samuel"
-          oninput="checkName()" onkeydown="if(event.key==='Enter') doLogin()"
-          style="font-size:1rem; padding:14px;" maxlength="30" autocomplete="given-name">
-      </div>
-      <div style="display:flex; gap:8px;">
-        <button class="btn btn-secondary" onclick="goStep(2)" style="flex:0 0 auto; padding:12px 16px;">←</button>
-        <button class="btn btn-primary" id="loginBtn" onclick="doLogin()" disabled style="flex:1" id="loginBtnEl">
-          <span id="loginBtnText">Accéder →</span>
-        </button>
-      </div>
-      <p style="font-size:0.72rem; color:var(--text3); text-align:center; margin-top:12px; line-height:1.5;" id="privacyNote">
-        🔒 Aucune donnée n'est envoyée à un serveur. Tout reste sur votre appareil.
-      </p>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-icon">🛒</div>
+      <div class="step-title">Vos clients commandent</div>
+      <p class="step-desc">Ils cliquent sur « Commander », WhatsApp s'ouvre avec le produit déjà renseigné. Vous répondez !</p>
     </div>
   </div>
-</div>
+</section>
 
-<script src="js/i18n.js"></script>
-<script src="js/storage.js"></script>
-<script>
-  let currentLang = 'fr';
-  let currentStep = 1;
+<!-- ── DEMO BOUTIQUE ── -->
+<section id="demo">
+  <div class="demo-header">
+    <div class="section-label">Démonstration</div>
+    <div class="demo-tag">✦ Exemple de boutique créée</div>
+    <h2 class="section-title">Voici ce que vos clients verront</h2>
+  </div>
 
-  // ── Check if already logged in ──
-  window.addEventListener('DOMContentLoaded', () => {
-    const session = Store.getSession();
-    if (session && session.consent && session.userName) {
-      window.location.replace('dashboard.html');
-    }
-  });
+  <!-- MOCK SHOP -->
+  <div class="shop-frame">
+    <div class="shop-topbar">
+      <div class="shop-name">🛍️ Ma Boutique Pro</div>
+      <div class="shop-tagline">Mode, beauté & accessoires — livraison rapide</div>
+    </div>
+    <div class="shop-contact-bar">
+      <a href="https://wa.me/22891547843" target="_blank">💬 Contactez-nous sur WhatsApp</a>
+    </div>
 
-  // ── Language selection ──
-  function selectLang(lang) {
-    currentLang = lang;
-    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
-    applyTranslations(lang);
-  }
+    <div class="shop-body">
+      <div class="products-grid">
 
-  function applyTranslations(lang) {
-    const t = I18N[lang];
-    document.documentElement.setAttribute('dir', t.dir);
-    document.getElementById('logo').textContent = t.appName;
-    document.getElementById('tagline').textContent = t.tagline;
-    document.getElementById('badges').innerHTML = `
-      <span class="badge badge-green">🔒 ${t.badgeRGPD}</span>
-      <span class="badge badge-blue">🏥 ${t.badgeHIPAA}</span>
-      <span class="badge badge-gold">🌍 ${t.badgeAfrica}</span>
-    `;
-    document.getElementById('consentText').textContent = t.consentText;
-    document.getElementById('consentCheckLabel').textContent = t.consentCheck;
-    document.getElementById('nameLabel').textContent = `👤 ${t.yourName}`;
-    document.getElementById('nameInput').placeholder = t.namePlaceholder;
-    if (document.getElementById('privacyNote')) {
-      const notes = {
-        fr: '🔒 Aucune donnée n\'est envoyée à un serveur. Tout reste sur votre appareil.',
-        en: '🔒 No data is sent to a server. Everything stays on your device.',
-        ar: '🔒 لا يتم إرسال أي بيانات إلى خادم. كل شيء يبقى على جهازك.',
-        es: '🔒 Ningún dato se envía a un servidor. Todo permanece en tu dispositivo.'
-      };
-      document.getElementById('privacyNote').textContent = notes[lang];
-    }
-  }
+        <!-- Produit 1 -->
+        <div class="product-card">
+          <div class="product-img">🧴</div>
+          <div class="product-info">
+            <div class="product-name">Crème Éclaircissante</div>
+            <div class="product-price">8 500 FCFA</div>
+            <a class="btn-wa"
+               href="https://wa.me/22891547843?text=Bonjour%20%F0%9F%91%8B%2C%20je%20veux%20commander%20la%20%E2%9C%A8%20Cr%C3%A8me%20%C3%89claircissante%20(8%20500%20FCFA)"
+               target="_blank">
+              <span class="wa-icon">💬</span> Commander
+            </a>
+          </div>
+        </div>
 
-  // ── Step navigation ──
-  function goStep(step) {
-    [1,2,3].forEach(i => {
-      document.getElementById(`step${i}`).style.display = i === step ? 'block' : 'none';
-      const dot = document.getElementById(`dot${i}`);
-      dot.className = 'step-dot' + (i === step ? ' active' : i < step ? ' done' : '');
-    });
-    currentStep = step;
-    if (step === 3) document.getElementById('nameInput').focus();
-  }
+        <!-- Produit 2 -->
+        <div class="product-card">
+          <div class="product-img">🫙</div>
+          <div class="product-info">
+            <div class="product-name">Beurre de Karité Pur</div>
+            <div class="product-price">5 000 FCFA</div>
+            <a class="btn-wa"
+               href="https://wa.me/22891547843?text=Bonjour%20%F0%9F%91%8B%2C%20je%20veux%20commander%20le%20%F0%9F«Beurre%20de%20Karit%C3%A9%20Pur%20(5%20000%20FCFA)"
+               target="_blank">
+              <span class="wa-icon">💬</span> Commander
+            </a>
+          </div>
+        </div>
 
-  // ── Consent check ──
-  function checkConsent() {
-    const checked = document.getElementById('consentCheck').checked;
-    document.getElementById('consentBtn').disabled = !checked;
-  }
+        <!-- Produit 3 -->
+        <div class="product-card">
+          <div class="product-img">🌸</div>
+          <div class="product-info">
+            <div class="product-name">Parfum Soir d'Abidjan</div>
+            <div class="product-price">12 000 FCFA</div>
+            <a class="btn-wa"
+               href="https://wa.me/22891547843?text=Bonjour%20%F0%9F%91%8B%2C%20je%20veux%20commander%20le%20Parfum%20Soir%20d'Abidjan%20(12%20000%20FCFA)"
+               target="_blank">
+              <span class="wa-icon">💬</span> Commander
+            </a>
+          </div>
+        </div>
 
-  // ── Name check ──
-  function checkName() {
-    const val = document.getElementById('nameInput').value.trim();
-    document.getElementById('loginBtn').disabled = val.length < 2;
-  }
+        <!-- Produit 4 -->
+        <div class="product-card">
+          <div class="product-img">🧼</div>
+          <div class="product-info">
+            <div class="product-name">Savon Naturel Bio</div>
+            <div class="product-price">2 500 FCFA</div>
+            <a class="btn-wa"
+               href="https://wa.me/22891547843?text=Bonjour%20%F0%9F%91%8B%2C%20je%20veux%20commander%20le%20Savon%20Naturel%20Bio%20(2%20500%20FCFA)"
+               target="_blank">
+              <span class="wa-icon">💬</span> Commander
+            </a>
+          </div>
+        </div>
 
-  // ── Login ──
-  function doLogin() {
-    const name = document.getElementById('nameInput').value.trim();
-    if (name.length < 2) return;
-    Store.saveSession({
-      consent: true,
-      userName: name,
-      lang: currentLang,
-      loginDate: new Date().toISOString()
-    });
-    window.location.href = 'dashboard.html';
-  }
-</script>
+        <!-- Produit 5 -->
+        <div class="product-card">
+          <div class="product-img">💊</div>
+          <div class="product-info">
+            <div class="product-name">Sérum Éclat Visage</div>
+            <div class="product-price">9 000 FCFA</div>
+            <a class="btn-wa"
+               href="https://wa.me/22891547843?text=Bonjour%20%F0%9F%91%8B%2C%20je%20veux%20commander%20le%20S%C3%A9rum%20%C3%89clat%20Visage%20(9%20000%20FCFA)"
+               target="_blank">
+              <span class="wa-icon">💬</span> Commander
+            </a>
+          </div>
+        </div>
+
+        <!-- Produit 6 -->
+        <div class="product-card">
+          <div class="product-img">🌿</div>
+          <div class="product-info">
+            <div class="product-name">Huile de Coco Vierge</div>
+            <div class="product-price">3 500 FCFA</div>
+            <a class="btn-wa"
+               href="https://wa.me/22891547843?text=Bonjour%20%F0%9F%91%8B%2C%20je%20veux%20commander%20l'Huile%20de%20Coco%20Vierge%20(3%20500%20FCFA)"
+               target="_blank">
+              <span class="wa-icon">💬</span> Commander
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /products-grid -->
+    </div><!-- /shop-body -->
+
+    <div class="shop-footer">
+      Boutique créée par <strong>Esso Samuel</strong> — WhatsApp Commerce 🇹🇬
+    </div>
+  </div><!-- /shop-frame -->
+
+  <p class="demo-caption">
+    ↑ Voilà exactement ce que vos clients verront. Cliquez sur « Commander » pour tester !
+  </p>
+</section>
+
+<!-- ── PRICING ── -->
+<section id="pricing">
+  <div class="section-label">Tarif</div>
+  <h2 class="section-title">Un seul forfait, tout inclus</h2>
+
+  <div class="price-card">
+    <div style="font-size:0.8rem; color:rgba(255,255,255,0.55); text-transform:uppercase; letter-spacing:0.1em;">Boutique WhatsApp complète</div>
+    <div class="price-amount">15 000</div>
+    <div class="price-unit">FCFA · paiement unique</div>
+
+    <ul class="price-features">
+      <li>Jusqu'à 20 produits avec photos</li>
+      <li>Boutons WhatsApp sur chaque produit</li>
+      <li>Design aux couleurs de votre marque</li>
+      <li>Lien partageable sur WhatsApp &amp; TikTok</li>
+      <li>Hébergement gratuit inclus</li>
+      <li>Livraison en 48 heures</li>
+      <li>1 modification gratuite après livraison</li>
+    </ul>
+
+    <a class="btn-primary" style="width:100%; justify-content:center;"
+       href="https://wa.me/22891547843?text=Bonjour+Esso%2C+je+veux+ma+mini+boutique+WhatsApp+pour+15%20000+FCFA+%F0%9F%9B%92"
+       target="_blank">
+      💬 Démarrer maintenant
+    </a>
+  </div>
+</section>
+
+
+<!-- ── TYPES DE BOUTIQUES ── -->
+<section style="padding:5rem 1.5rem; background:#fff; text-align:center;">
+  <div class="section-label">Pour tous les secteurs</div>
+  <h2 class="section-title">Je crée la boutique de votre secteur</h2>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1rem; max-width:700px; margin:0 auto;">
+    <div style="background:var(--cream); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1rem; text-align:center;">
+      <div style="font-size:2rem; margin-bottom:0.5rem;">👗</div>
+      <div style="font-weight:600; font-size:0.88rem; color:var(--green);">Mode & Vêtements</div>
+    </div>
+    <div style="background:var(--cream); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1rem; text-align:center;">
+      <div style="font-size:2rem; margin-bottom:0.5rem;">💄</div>
+      <div style="font-weight:600; font-size:0.88rem; color:var(--green);">Cosmétiques</div>
+    </div>
+    <div style="background:var(--cream); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1rem; text-align:center;">
+      <div style="font-size:2rem; margin-bottom:0.5rem;">📱</div>
+      <div style="font-weight:600; font-size:0.88rem; color:var(--green);">Électronique</div>
+    </div>
+    <div style="background:var(--cream); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1rem; text-align:center;">
+      <div style="font-size:2rem; margin-bottom:0.5rem;">🍎</div>
+      <div style="font-weight:600; font-size:0.88rem; color:var(--green);">Alimentation</div>
+    </div>
+    <div style="background:var(--cream); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1rem; text-align:center;">
+      <div style="font-size:2rem; margin-bottom:0.5rem;">👠</div>
+      <div style="font-weight:600; font-size:0.88rem; color:var(--green);">Chaussures</div>
+    </div>
+    <div style="background:var(--cream); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1rem; text-align:center;">
+      <div style="font-size:2rem; margin-bottom:0.5rem;">🛋️</div>
+      <div style="font-weight:600; font-size:0.88rem; color:var(--green);">Maison & Déco</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section style="padding:5rem 1.5rem; background:var(--cream);">
+  <div class="section-label" style="text-align:center;">FAQ</div>
+  <h2 class="section-title">Questions fréquentes</h2>
+  <div style="max-width:620px; margin:0 auto; display:flex; flex-direction:column; gap:1rem;">
+
+    <details style="background:#fff; border:1px solid var(--border); border-radius:14px; padding:1.2rem 1.5rem; cursor:pointer;">
+      <summary style="font-weight:600; color:var(--green); font-size:0.95rem; list-style:none;">💰 Combien ça coûte ?</summary>
+      <p style="margin-top:0.8rem; font-size:0.87rem; color:var(--muted); line-height:1.7;">Un seul paiement de 90 €. Pas d'abonnement mensuel, pas de frais cachés. Hébergement inclus.</p>
+    </details>
+
+    <details style="background:#fff; border:1px solid var(--border); border-radius:14px; padding:1.2rem 1.5rem; cursor:pointer;">
+      <summary style="font-weight:600; color:var(--green); font-size:0.95rem; list-style:none;">⚡ Combien de temps pour livrer ?</summary>
+      <p style="margin-top:0.8rem; font-size:0.87rem; color:var(--muted); line-height:1.7;">Votre boutique est prête en 48 heures après réception de vos produits et informations.</p>
+    </details>
+
+    <details style="background:#fff; border:1px solid var(--border); border-radius:14px; padding:1.2rem 1.5rem; cursor:pointer;">
+      <summary style="font-weight:600; color:var(--green); font-size:0.95rem; list-style:none;">🛍️ Combien de produits je peux mettre ?</summary>
+      <p style="margin-top:0.8rem; font-size:0.87rem; color:var(--muted); line-height:1.7;">Jusqu'à 20 produits inclus dans le forfait. Au-delà, contactez-moi pour un devis personnalisé.</p>
+    </details>
+
+    <details style="background:#fff; border:1px solid var(--border); border-radius:14px; padding:1.2rem 1.5rem; cursor:pointer;">
+      <summary style="font-weight:600; color:var(--green); font-size:0.95rem; list-style:none;">✏️ Puis-je modifier ma boutique après livraison ?</summary>
+      <p style="margin-top:0.8rem; font-size:0.87rem; color:var(--muted); line-height:1.7;">Oui — 1 modification gratuite incluse. Pour des changements supplémentaires, un tarif réduit s'applique.</p>
+    </details>
+
+    <details style="background:#fff; border:1px solid var(--border); border-radius:14px; padding:1.2rem 1.5rem; cursor:pointer;">
+      <summary style="font-weight:600; color:var(--green); font-size:0.95rem; list-style:none;">📱 Comment mes clients vont commander ?</summary>
+      <p style="margin-top:0.8rem; font-size:0.87rem; color:var(--muted); line-height:1.7;">Ils cliquent sur le bouton "Commander" d'un produit, WhatsApp s'ouvre automatiquement avec le nom du produit déjà écrit. Vous n'avez qu'à répondre.</p>
+    </details>
+
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact" style="padding:4rem 1.5rem; background:#0D2419; text-align:center;">
+  <div class="section-label" style="color:var(--gold2);">Me contacter</div>
+  <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.7rem,5vw,2.4rem); color:#fff; font-weight:700; margin-bottom:0.6rem;">
+    Parlons de votre boutique
+  </h2>
+  <p style="color:rgba(255,255,255,0.55); font-size:0.9rem; margin-bottom:2rem;">
+    Répondez-moi en moins de 24h
+  </p>
+
+  <div style="display:flex; flex-direction:column; gap:1rem; max-width:360px; margin:0 auto;">
+
+    <!-- Bouton WhatsApp -->
+    <a href="https://wa.me/22891547843?text=Bonjour+Esso%2C+je+veux+ma+mini+boutique+WhatsApp"
+       target="_blank"
+       style="display:flex; align-items:center; justify-content:center; gap:0.6rem;
+              background:#25D366; color:#fff;
+              font-family:'DM Sans',sans-serif; font-size:0.95rem; font-weight:600;
+              padding:0.95rem 1.5rem; border-radius:100px; text-decoration:none;
+              box-shadow:0 4px 20px rgba(37,211,102,0.3); transition:opacity 0.2s;">
+      💬 Écrire sur WhatsApp
+    </a>
+
+    <!-- Bouton Email -->
+    <a href="mailto:samuelesso846@gmail.com"
+       style="display:flex; align-items:center; justify-content:center; gap:0.6rem;
+              background:rgba(255,255,255,0.07); color:#fff;
+              border:1px solid rgba(255,255,255,0.18);
+              font-family:'DM Sans',sans-serif; font-size:0.95rem; font-weight:500;
+              padding:0.95rem 1.5rem; border-radius:100px; text-decoration:none;
+              transition:background 0.2s;">
+      ✉️ Envoyer un Email
+    </a>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p><strong>Création de Site Web</strong></p>
+  <p style="margin-top:0.4rem; opacity:0.5;">WhatsApp Commerce · Services numériques pour l'Afrique</p>
+</footer>
+
 </body>
 </html>
