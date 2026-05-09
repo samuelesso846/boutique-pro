@@ -746,7 +746,7 @@ function toggleFaq(el){
         </div>
       </div>
 
-      <!-- Add order -->
+      <div style="margin-bottom:16px"><p style="font-size:.85rem;font-weight:600;color:#1C3D35;margin-bottom:10px">📊 Commandes par mois</p><div id="month-chart" style="display:flex;align-items:flex-end;gap:6px;height:80px;background:#FFFBF4;border-radius:10px;padding:10px;border:1px solid #E0D5C0"></div><div id="month-labels" style="display:flex;gap:6px;margin-top:4px;padding:0 10px"></div></div><button onclick="downloadCSV()" style="width:100%;background:#1C3D35;color:#fff;padding:11px;border-radius:10px;border:none;font-size:.88rem;font-weight:600;cursor:pointer;margin-bottom:12px">📥 Télécharger mes commandes (CSV)</button><!-- Add order -->
       <div style="background:#FFFBF4;border:1px solid #E0D5C0;border-radius:12px;padding:16px;margin-bottom:16px">
         <p style="font-size:.85rem;font-weight:600;color:#1C3D35;margin-bottom:10px">➕ Ajouter une commande</p>
         <input id="order-product" placeholder="Nom du produit" style="width:100%;padding:9px 12px;border:1px solid #E0D5C0;border-radius:8px;font-size:.85rem;margin-bottom:8px;font-family:'DM Sans',sans-serif"/>
@@ -805,7 +805,11 @@ function loadOrders(){
     return '<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #F0E8D2;font-size:.82rem"><span>'+o.product+'</span><span style="color:#C8973A;font-weight:600">'+o.amount+' — '+o.date+'</span></div>';
   }).join(''):'<p style="font-size:.82rem;color:#6B6560;text-align:center;padding:16px">Aucune commande enregistrée</p>';
   document.getElementById('orders-list').innerHTML=html;
+    renderChart();
 }
+
+function renderChart(){var orders=getOrders();var months={};orders.forEach(function(o){var k=o.month||"inconnu";months[k]=(months[k]||0)+1;});var keys=Object.keys(months).slice(-6);var max=Math.max.apply(null,keys.map(function(k){return months[k];}));var chart=document.getElementById("month-chart");var labels=document.getElementById("month-labels");if(!chart)return;chart.innerHTML="";labels.innerHTML="";if(keys.length===0){chart.innerHTML='<p style="font-size:.75rem;color:#6B6560;margin:auto">Aucune donnée</p>';return;}keys.forEach(function(k){var h=Math.round((months[k]/max)*60)+4;var parts=k.split("_");var mnames=["Jan","Fév","Mar","Avr","Mai","Jun","Jul","Aoû","Sep","Oct","Nov","Déc"];var label=mnames[parseInt(parts[0])]||k;chart.innerHTML+='<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px"><span style="font-size:.65rem;color:#C8973A;font-weight:700">'+months[k]+'</span><div style="width:100%;background:#1C3D35;border-radius:4px 4px 0 0;height:'+h+'px"></div></div>';labels.innerHTML+='<div style="flex:1;text-align:center;font-size:.62rem;color:#6B6560">'+label+'</div>';});}
+function downloadCSV(){var orders=getOrders();if(orders.length===0){alert("Aucune commande à télécharger");return;}var csv="Date,Produit,Montant\n";orders.forEach(function(o){csv+=o.date+","+o.product+","+o.amount+"\n";});var blob=new Blob([csv],{type:"text/csv;charset=utf-8;"});var url=URL.createObjectURL(blob);var a=document.createElement("a");a.href=url;a.download="commandes-boutique.csv";document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);}
 function clearOrders(){if(confirm('Effacer toutes les commandes ?')){saveOrders([]);loadOrders();}}
 document.getElementById('admin-pwd').addEventListener('keypress',function(e){if(e.key==='Enter')checkPwd();});
 </script>
