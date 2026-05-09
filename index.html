@@ -634,86 +634,71 @@
 
 <!-- CONFIGURATEUR -->
 <div style="background:#1C3D35;padding:70px 24px">
-  <div style="max-width:640px;margin:0 auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.2)">
-    <div style="background:#163025;padding:28px 24px;text-align:center">
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#E8B96A;margin-bottom:6px">✦ Configurez votre boutique</h2>
-      <p style="color:rgba(255,255,255,.65);font-size:.9rem">3 questions — je vous contacte sous 24h</p>
-    </div>
-    <div style="padding:24px">
-      <div style="height:4px;background:#F0E8D2;border-radius:2px;margin-bottom:24px"><div id="cfg-bar" style="height:100%;background:#C8973A;border-radius:2px;width:10%;transition:width .3s"></div></div>
-
-      <p style="font-weight:600;color:#1C3D35;font-size:.95rem;margin-bottom:12px;display:flex;align-items:center;gap:8px"><span style="background:#C8973A;color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700">1</span> Votre secteur d'activité</p>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px" id="cfg-s1">
-        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','👗 Mode & Vêtements')">👗 Mode</button>
-        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','💄 Beauté & Cosmétiques')">💄 Beauté</button>
-        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','🍽️ Restaurant & Traiteur')">🍽️ Restaurant</button>
-        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','💊 Pharmacie & Para')">💊 Pharmacie</button>
-        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','🛒 Épicerie')">🛒 Épicerie</button>
-        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','🏥 Clinique & Santé')">🏥 Clinique</button>
-        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','🏪 TPE & Commerce')">🏪 TPE</button>
-        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','⚡ Électricien')">⚡ Électricien</button>
-        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','💇 Salon & Beauté')">💇 Salon</button>
-        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','Autre activité')">Autre</button>
-      </div>
-
-      <hr style="border:none;border-top:1px solid #F0E8D2;margin-bottom:20px"/>
-
-      <p style="font-weight:600;color:#1C3D35;font-size:.95rem;margin-bottom:12px;display:flex;align-items:center;gap:8px"><span style="background:#C8973A;color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700">2</span> Nombre de produits à afficher</p>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px" id="cfg-s2">
-        <button class="cfb" data-group="produits" onclick="cfgSelect(this,'produits','Moins de 10 produits')">Moins de 10</button>
-        <button class="cfb" data-group="produits" onclick="cfgSelect(this,'produits','Entre 10 et 15 produits')">10 à 15</button>
-        <button class="cfb" data-group="produits" onclick="cfgSelect(this,'produits','Entre 15 et 30 produits')">15 à 30</button>
-        <button class="cfb" data-group="produits" onclick="cfgSelect(this,'produits','Plus de 30 produits')">Plus de 30</button>
-      </div>
-
-      <hr style="border:none;border-top:1px solid #F0E8D2;margin-bottom:20px"/>
-
-      <p style="font-weight:600;color:#1C3D35;font-size:.95rem;margin-bottom:12px;display:flex;align-items:center;gap:8px"><span style="background:#C8973A;color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700">3</span> Forfait souhaité</p>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px" id="cfg-s3">
-        <button class="cfb" data-group="forfait" onclick="cfgSelect(this,'forfait','Essentiel — 70€')">⚡ Essentiel — 70€</button>
-        <button class="cfb" data-group="forfait" onclick="cfgSelect(this,'forfait','Pro — 100€')">⭐ Pro — 100€</button>
-        <button class="cfb" data-group="forfait" onclick="cfgSelect(this,'forfait','Sur Mesure')">🎯 Sur Mesure</button>
-      </div>
-
-      <div id="cfg-sum" style="background:#FBF5E8;border-radius:12px;padding:14px;margin-bottom:16px;display:none;font-size:.85rem;color:#1C3D35"></div>
-
-      <button id="cfg-btn" onclick="cfgSend()" style="width:100%;background:#E0D5C0;color:#fff;padding:16px;border-radius:12px;border:none;font-size:1rem;font-weight:700;cursor:not-allowed;font-family:'DM Sans',sans-serif;transition:all .3s">💬 Envoyer ma demande sur WhatsApp</button>
-      <p style="text-align:center;font-size:.75rem;color:#6B6560;margin-top:8px">Réponse garantie en moins de 24h ✓</p>
-    </div>
-  </div>
+<div style="max-width:620px;margin:0 auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.2)">
+<div style="background:#163025;padding:28px 24px;text-align:center">
+<h2 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#E8B96A;margin-bottom:6px">✦ Configurez votre boutique</h2>
+<p style="color:rgba(255,255,255,.65);font-size:.9rem">3 questions — je vous contacte sous 24h</p>
 </div>
-
-<style>
-.cfb{background:#FBF5E8;border:2px solid #E0D5C0;color:#1C3D35;padding:8px 14px;border-radius:30px;font-size:.82rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:"DM Sans",sans-serif}
-.cfb:hover{border-color:#C8973A;color:#C8973A}
-.cfb.on{background:#1C3D35;border-color:#1C3D35;color:#fff}
-</style>
-
+<div style="padding:24px">
+<div style="height:4px;background:#F0E8D2;border-radius:2px;margin-bottom:24px"><div id="cb" style="height:100%;background:#C8973A;border-radius:2px;width:10%;transition:width .3s"></div></div>
+<p style="font-weight:600;color:#1C3D35;font-size:.92rem;margin-bottom:10px">1️⃣ Votre secteur</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px">
+<button class="cb1" onclick="cs(this,1,'👗 Mode')">👗 Mode</button>
+<button class="cb1" onclick="cs(this,1,'💄 Beauté')">💄 Beauté</button>
+<button class="cb1" onclick="cs(this,1,'🍽️ Restaurant')">🍽️ Restaurant</button>
+<button class="cb1" onclick="cs(this,1,'💊 Pharmacie')">💊 Pharmacie</button>
+<button class="cb1" onclick="cs(this,1,'🛒 Épicerie')">🛒 Épicerie</button>
+<button class="cb1" onclick="cs(this,1,'🏥 Clinique')">🏥 Clinique</button>
+<button class="cb1" onclick="cs(this,1,'🏪 TPE')">🏪 TPE</button>
+<button class="cb1" onclick="cs(this,1,'⚡ Électricien')">⚡ Électricien</button>
+<button class="cb1" onclick="cs(this,1,'💇 Salon')">💇 Salon</button>
+<button class="cb1" onclick="cs(this,1,'Autre')">Autre</button>
+</div>
+<hr style="border:none;border-top:1px solid #F0E8D2;margin-bottom:18px"/>
+<p style="font-weight:600;color:#1C3D35;font-size:.92rem;margin-bottom:10px">2️⃣ Nombre de produits</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px">
+<button class="cb2" onclick="cs(this,2,'Moins de 10')">Moins de 10</button>
+<button class="cb2" onclick="cs(this,2,'10 à 15')">10 à 15</button>
+<button class="cb2" onclick="cs(this,2,'15 à 30')">15 à 30</button>
+<button class="cb2" onclick="cs(this,2,'Plus de 30')">Plus de 30</button>
+</div>
+<hr style="border:none;border-top:1px solid #F0E8D2;margin-bottom:18px"/>
+<p style="font-weight:600;color:#1C3D35;font-size:.92rem;margin-bottom:10px">3️⃣ Forfait souhaité</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px">
+<button class="cb3" onclick="cs(this,3,'Essentiel 70€')">⚡ Essentiel 70€</button>
+<button class="cb3" onclick="cs(this,3,'Pro 100€')">⭐ Pro 100€</button>
+<button class="cb3" onclick="cs(this,3,'Sur Mesure')">🎯 Sur Mesure</button>
+</div>
+<div id="cs-sum" style="background:#FBF5E8;border-radius:10px;padding:12px;margin-bottom:14px;font-size:.83rem;color:#1C3D35;display:none"></div>
+<button id="cs-btn" onclick="csSend()" style="width:100%;background:#E0D5C0;color:#fff;padding:15px;border-radius:12px;border:none;font-size:.95rem;font-weight:700;cursor:not-allowed;font-family:'DM Sans',sans-serif;transition:all .3s">💬 Envoyer ma demande sur WhatsApp</button>
+<p style="text-align:center;font-size:.72rem;color:#6B6560;margin-top:8px">Réponse garantie sous 24h ✓</p>
+</div></div></div>
+<style>.cb1,.cb2,.cb3{background:#FBF5E8;border:2px solid #E0D5C0;color:#1C3D35;padding:8px 13px;border-radius:30px;font-size:.8rem;font-weight:500;cursor:pointer;font-family:"DM Sans",sans-serif;transition:all .2s}.cb1.on,.cb2.on,.cb3.on{background:#1C3D35;border-color:#1C3D35;color:#fff}</style>
 <script>
-var cfg={secteur:"",produits:"",forfait:""};
-function cfgSelect(btn,k,v){
-  document.querySelectorAll('.cfb[data-group="'+k+'"]').forEach(function(b){b.classList.remove("on");});
-  btn.classList.add("on");cfg[k]=v;
-  var filled=Object.values(cfg).filter(function(x){return x!=""}).length;
-  document.getElementById("cfg-bar").style.width=(10+filled*30)+"%";
-  var sum=document.getElementById("cfg-sum");
-  var btn2=document.getElementById("cfg-btn");
-  var html="📋 Votre projet :<br>";
-  if(cfg.secteur)html+="✓ Secteur : "+cfg.secteur+"<br>";
-  if(cfg.produits)html+="✓ Produits : "+cfg.produits+"<br>";
-  if(cfg.forfait)html+="✓ Forfait : "+cfg.forfait;
-  sum.innerHTML=html;sum.style.display="block";
-  if(filled===3){btn2.style.background="#25D366";btn2.style.cursor="pointer";btn2.style.boxShadow="0 4px 20px rgba(37,211,102,.4)";}else{btn2.style.background="#E0D5C0";btn2.style.cursor="not-allowed";btn2.style.boxShadow="none";}
+var cv={1:"",2:"",3:""};
+function cs(btn,g,v){
+  document.querySelectorAll(".cb"+g).forEach(function(b){b.classList.remove("on")});
+  btn.classList.add("on");
+  cv[g]=v;
+  var n=Object.values(cv).filter(function(x){return x!==""}).length;
+  document.getElementById("cb").style.width=(10+n*30)+"%";
+  var s=document.getElementById("cs-sum");
+  var b=document.getElementById("cs-btn");
+  s.style.display="block";
+  s.innerHTML=(cv[1]?"✓ Secteur : "+cv[1]+"<br>":"")+(cv[2]?"✓ Produits : "+cv[2]+"<br>":"")+(cv[3]?"✓ Forfait : "+cv[3]:"");
+  if(n===3){b.style.background="#25D366";b.style.cursor="pointer";b.style.boxShadow="0 4px 16px rgba(37,211,102,.4)";}
+  else{b.style.background="#E0D5C0";b.style.cursor="not-allowed";b.style.boxShadow="none";}
 }
-function cfgSend(){
-  var msg="Bonjour, je veux créer ma boutique WhatsApp 🛍️
+function csSend(){
+  if(!cv[1]||!cv[2]||!cv[3])return;
+  var m="Bonjour, je veux ma boutique WhatsApp !
 
-📌 Secteur : "+cfg.secteur+"
-📦 Produits : "+cfg.produits+"
-💶 Forfait : "+cfg.forfait+"
+Secteur : "+cv[1]+"
+Produits : "+cv[2]+"
+Forfait : "+cv[3]+"
 
-Pouvez-vous me contacter pour démarrer ?";
-  window.open("https://wa.me/22891547843?text="+encodeURIComponent(msg),"_blank");
+Merci de me contacter.";
+  window.open("https://wa.me/22891547843?text="+encodeURIComponent(m),"_blank");
 }
 </script>
 
