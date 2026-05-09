@@ -677,7 +677,7 @@
 
       <div id="cfg-sum" style="background:#FBF5E8;border-radius:12px;padding:14px;margin-bottom:16px;display:none;font-size:.85rem;color:#1C3D35"></div>
 
-      <button id="cfg-btn" onclick="cfgSend()" disabled style="width:100%;background:#ccc;color:#fff;padding:16px;border-radius:12px;border:none;font-size:1rem;font-weight:700;cursor:not-allowed;font-family:'DM Sans',sans-serif;transition:background .3s">💬 Envoyer ma demande sur WhatsApp</button>
+      <button id="cfg-btn" onclick="cfgSend()" style="width:100%;background:#E0D5C0;color:#fff;padding:16px;border-radius:12px;border:none;font-size:1rem;font-weight:700;cursor:not-allowed;font-family:'DM Sans',sans-serif;transition:all .3s">💬 Envoyer ma demande sur WhatsApp</button>
       <p style="text-align:center;font-size:.75rem;color:#6B6560;margin-top:8px">Réponse garantie en moins de 24h ✓</p>
     </div>
   </div>
@@ -704,7 +704,7 @@ function cfgSelect(btn,k,v){
   if(cfg.produits)html+="✓ Produits : "+cfg.produits+"<br>";
   if(cfg.forfait)html+="✓ Forfait : "+cfg.forfait;
   sum.innerHTML=html;sum.style.display="block";
-  if(filled===3){btn2.disabled=false;btn2.style.background="#25D366";btn2.style.cursor="pointer";}
+  if(filled===3){btn2.style.background="#25D366";btn2.style.cursor="pointer";btn2.style.boxShadow="0 4px 20px rgba(37,211,102,.4)";}else{btn2.style.background="#E0D5C0";btn2.style.cursor="not-allowed";btn2.style.boxShadow="none";}
 }
 function cfgSend(){
   var msg="Bonjour, je veux créer ma boutique WhatsApp 🛍️
