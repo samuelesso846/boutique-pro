@@ -644,35 +644,35 @@
 
       <p style="font-weight:600;color:#1C3D35;font-size:.95rem;margin-bottom:12px;display:flex;align-items:center;gap:8px"><span style="background:#C8973A;color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700">1</span> Votre secteur d'activité</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px" id="cfg-s1">
-        <button class="cfb" onclick="cfgSelect(this,'secteur','👗 Mode & Vêtements')">👗 Mode</button>
-        <button class="cfb" onclick="cfgSelect(this,'secteur','💄 Beauté & Cosmétiques')">💄 Beauté</button>
-        <button class="cfb" onclick="cfgSelect(this,'secteur','🍽️ Restaurant & Traiteur')">🍽️ Restaurant</button>
-        <button class="cfb" onclick="cfgSelect(this,'secteur','💊 Pharmacie & Para')">💊 Pharmacie</button>
-        <button class="cfb" onclick="cfgSelect(this,'secteur','🛒 Épicerie')">🛒 Épicerie</button>
-        <button class="cfb" onclick="cfgSelect(this,'secteur','🏥 Clinique & Santé')">🏥 Clinique</button>
-        <button class="cfb" onclick="cfgSelect(this,'secteur','🏪 TPE & Commerce')">🏪 TPE</button>
-        <button class="cfb" onclick="cfgSelect(this,'secteur','⚡ Électricien')">⚡ Électricien</button>
-        <button class="cfb" onclick="cfgSelect(this,'secteur','💇 Salon & Beauté')">💇 Salon</button>
-        <button class="cfb" onclick="cfgSelect(this,'secteur','Autre activité')">Autre</button>
+        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','👗 Mode & Vêtements')">👗 Mode</button>
+        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','💄 Beauté & Cosmétiques')">💄 Beauté</button>
+        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','🍽️ Restaurant & Traiteur')">🍽️ Restaurant</button>
+        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','💊 Pharmacie & Para')">💊 Pharmacie</button>
+        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','🛒 Épicerie')">🛒 Épicerie</button>
+        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','🏥 Clinique & Santé')">🏥 Clinique</button>
+        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','🏪 TPE & Commerce')">🏪 TPE</button>
+        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','⚡ Électricien')">⚡ Électricien</button>
+        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','💇 Salon & Beauté')">💇 Salon</button>
+        <button class="cfb" data-group="secteur" onclick="cfgSelect(this,'secteur','Autre activité')">Autre</button>
       </div>
 
       <hr style="border:none;border-top:1px solid #F0E8D2;margin-bottom:20px"/>
 
       <p style="font-weight:600;color:#1C3D35;font-size:.95rem;margin-bottom:12px;display:flex;align-items:center;gap:8px"><span style="background:#C8973A;color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700">2</span> Nombre de produits à afficher</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px" id="cfg-s2">
-        <button class="cfb" onclick="cfgSelect(this,'produits','Moins de 10 produits')">Moins de 10</button>
-        <button class="cfb" onclick="cfgSelect(this,'produits','Entre 10 et 15 produits')">10 à 15</button>
-        <button class="cfb" onclick="cfgSelect(this,'produits','Entre 15 et 30 produits')">15 à 30</button>
-        <button class="cfb" onclick="cfgSelect(this,'produits','Plus de 30 produits')">Plus de 30</button>
+        <button class="cfb" data-group="produits" onclick="cfgSelect(this,'produits','Moins de 10 produits')">Moins de 10</button>
+        <button class="cfb" data-group="produits" onclick="cfgSelect(this,'produits','Entre 10 et 15 produits')">10 à 15</button>
+        <button class="cfb" data-group="produits" onclick="cfgSelect(this,'produits','Entre 15 et 30 produits')">15 à 30</button>
+        <button class="cfb" data-group="produits" onclick="cfgSelect(this,'produits','Plus de 30 produits')">Plus de 30</button>
       </div>
 
       <hr style="border:none;border-top:1px solid #F0E8D2;margin-bottom:20px"/>
 
       <p style="font-weight:600;color:#1C3D35;font-size:.95rem;margin-bottom:12px;display:flex;align-items:center;gap:8px"><span style="background:#C8973A;color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700">3</span> Forfait souhaité</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px" id="cfg-s3">
-        <button class="cfb" onclick="cfgSelect(this,'forfait','Essentiel — 70€')">⚡ Essentiel — 70€</button>
-        <button class="cfb" onclick="cfgSelect(this,'forfait','Pro — 100€')">⭐ Pro — 100€</button>
-        <button class="cfb" onclick="cfgSelect(this,'forfait','Sur Mesure')">🎯 Sur Mesure</button>
+        <button class="cfb" data-group="forfait" onclick="cfgSelect(this,'forfait','Essentiel — 70€')">⚡ Essentiel — 70€</button>
+        <button class="cfb" data-group="forfait" onclick="cfgSelect(this,'forfait','Pro — 100€')">⭐ Pro — 100€</button>
+        <button class="cfb" data-group="forfait" onclick="cfgSelect(this,'forfait','Sur Mesure')">🎯 Sur Mesure</button>
       </div>
 
       <div id="cfg-sum" style="background:#FBF5E8;border-radius:12px;padding:14px;margin-bottom:16px;display:none;font-size:.85rem;color:#1C3D35"></div>
@@ -692,8 +692,7 @@
 <script>
 var cfg={secteur:"",produits:"",forfait:""};
 function cfgSelect(btn,k,v){
-  var grp={"secteur":"cfg-s1","produits":"cfg-s2","forfait":"cfg-s3"};
-  document.getElementById(grp[k]).querySelectorAll(".cfb").forEach(function(b){b.classList.remove("on")});
+  document.querySelectorAll('.cfb[data-group="'+k+'"]').forEach(function(b){b.classList.remove("on");});
   btn.classList.add("on");cfg[k]=v;
   var filled=Object.values(cfg).filter(function(x){return x!=""}).length;
   document.getElementById("cfg-bar").style.width=(10+filled*30)+"%";
