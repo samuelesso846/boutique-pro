@@ -764,14 +764,12 @@ function toggleFaq(el){
   </div>
 </div>
 
-<!-- Admin trigger (hidden in footer) -->
-<div style="text-align:center;padding:8px;background:#080f0c">
-  <span onclick="openAdmin()" style="font-size:.65rem;color:rgba(255,255,255,.1);cursor:pointer;user-select:none">⬡</span>
-</div>
+
 
 <script>
 const PASS = 'boutique2025';
 function openAdmin(){document.getElementById('admin-overlay').style.display='flex';}
+if(window.location.search.includes('admin')||window.location.hash==='#admin'){openAdmin();}
 function closeAdmin(){document.getElementById('admin-overlay').style.display='none';document.getElementById('login-err').style.display='none';document.getElementById('admin-pwd').value='';}
 function checkPwd(){
   if(document.getElementById('admin-pwd').value===PASS){
