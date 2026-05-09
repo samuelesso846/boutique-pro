@@ -7,7 +7,7 @@
   <meta name="description" content="Votre boutique WhatsApp professionnelle livrée en 72h max. Vos clients commandent directement sur WhatsApp — sans application, sans abonnement. Dès 70€. Service mondial."/>
   <meta property="og:title" content="BoutiquePro — Boutique WhatsApp en 72h max"/>
   <meta property="og:description" content="Boutique WhatsApp pro livrée en 72h max. Dès 70€. Sans abonnement."/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"BoutiquePro","offers":{"@type":"Offer","price":"70","priceCurrency":"EUR"},"areaServed":"Worldwide","contactPoint":{"@type":"ContactPoint","email":"samuelesso846@gmail.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"BoutiquePro","offers":{"@type":"Offer","price":"70","priceCurrency":"EUR"},"areaServed":"Worldwide","contactPoint":{"@type":"ContactPoint","email":"✉️ Email"}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
@@ -169,6 +169,19 @@
 
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
+
+    /* ── COUNTER ── */
+    .counter-bg{background:var(--cream-dk);padding:60px 24px}
+    .counter-inner{max-width:900px;margin:0 auto;text-align:center}
+    .counter-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;margin-top:40px}
+    .counter-card{background:var(--white);border:1px solid var(--cream-dk);border-radius:16px;padding:28px 16px;transition:transform .2s,box-shadow .2s}
+    .counter-card:hover{transform:translateY(-3px);box-shadow:var(--sh)}
+    .counter-icon{font-size:2rem;margin-bottom:10px}
+    .counter-num{font-family:"Cormorant Garamond",serif;font-size:2.6rem;font-weight:700;color:var(--green);line-height:1}
+    .counter-suffix{color:var(--gold);font-size:1.5rem;font-weight:700}
+    .counter-label{font-size:.82rem;color:var(--muted);margin-top:6px;font-weight:500}
+    .counter-trend{display:inline-block;background:#E8F5ED;color:#1E7A40;font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:8px}
+
     /* ── SERVICE CARDS ── */
     .svc-bg{background:var(--green);padding:80px 24px}
     .svc-inner{max-width:900px;margin:0 auto}
@@ -281,21 +294,60 @@
   </div>
 </div>
 
-<div style="background:#F0E8D2;padding:60px 24px;text-align:center">
-<p style="font-size:.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#C8973A;margin-bottom:12px">En chiffres</p>
-<h2 style="font-family:Cormorant Garamond,serif;font-size:2.2rem;color:#1C3D35;margin-bottom:36px">Ce que vous gagnez</h2>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;max-width:900px;margin:0 auto">
-<div style="background:#fff;border-radius:16px;padding:24px 16px;border:1px solid #e8dcc8"><div style="font-size:1.8rem">🛒</div><div style="font-family:Cormorant Garamond,serif;font-size:2.5rem;font-weight:700;color:#1C3D35" class="cnt" data-t="3">0</div><div style="font-size:.8rem;color:#6B6560;margin-top:6px">x plus de commandes</div><span style="background:#E8F5ED;color:#1E7A40;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:8px;display:inline-block">↑ Ventes</span></div>
-<div style="background:#fff;border-radius:16px;padding:24px 16px;border:1px solid #e8dcc8"><div style="font-size:1.8rem">⏱️</div><div style="font-family:Cormorant Garamond,serif;font-size:2.5rem;font-weight:700;color:#1C3D35" class="cnt" data-t="72">0</div><div style="font-size:.8rem;color:#6B6560;margin-top:6px">heures délai maximum</div><span style="background:#E8F5ED;color:#1E7A40;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:8px;display:inline-block">Livraison rapide</span></div>
-<div style="background:#fff;border-radius:16px;padding:24px 16px;border:1px solid #e8dcc8"><div style="font-size:1.8rem">📱</div><div style="font-family:Cormorant Garamond,serif;font-size:2.5rem;font-weight:700;color:#1C3D35" class="cnt" data-t="100">0</div><div style="font-size:.8rem;color:#6B6560;margin-top:6px">% commandes sur WhatsApp</div><span style="background:#E8F5ED;color:#1E7A40;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:8px;display:inline-block">↑ Conversion</span></div>
-<div style="background:#fff;border-radius:16px;padding:24px 16px;border:1px solid #e8dcc8"><div style="font-size:1.8rem">💰</div><div style="font-family:Cormorant Garamond,serif;font-size:2.5rem;font-weight:700;color:#1C3D35" class="cnt" data-t="0">0</div><div style="font-size:.8rem;color:#6B6560;margin-top:6px">€ de frais mensuels</div><span style="background:#E8F5ED;color:#1E7A40;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:8px;display:inline-block">Paiement unique</span></div>
-<div style="background:#fff;border-radius:16px;padding:24px 16px;border:1px solid #e8dcc8"><div style="font-size:1.8rem">🌍</div><div style="font-family:Cormorant Garamond,serif;font-size:2.5rem;font-weight:700;color:#1C3D35" class="cnt" data-t="7">0</div><div style="font-size:.8rem;color:#6B6560;margin-top:6px">secteurs couverts</div><span style="background:#E8F5ED;color:#1E7A40;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:8px;display:inline-block">Tous secteurs</span></div>
-<div style="background:#fff;border-radius:16px;padding:24px 16px;border:1px solid #e8dcc8"><div style="font-size:1.8rem">⭐</div><div style="font-family:Cormorant Garamond,serif;font-size:2.5rem;font-weight:700;color:#1C3D35" class="cnt" data-t="24">0</div><div style="font-size:.8rem;color:#6B6560;margin-top:6px">h réponse garantie</div><span style="background:#E8F5ED;color:#1E7A40;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:8px;display:inline-block">Support réactif</span></div>
-</div></div>
-<script>
-(function(){var els=document.querySelectorAll(".cnt");function anim(){els.forEach(function(el){var t=+el.dataset.t;if(t===0){el.textContent="0";return}var d=1800,s=t/60,cur=0;var tm=setInterval(function(){cur+=s;if(cur>=t){cur=t;clearInterval(tm)}el.textContent=Math.floor(cur)},d/60)})}
-var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){anim();o.disconnect()}})},{threshold:0.3});var sec=document.querySelector(".cnt");if(sec)o.observe(sec.parentElement.parentElement)})();
-</script>
+
+<!-- COUNTER -->
+<div class="counter-bg">
+  <div class="counter-inner">
+    <p class="sec-label" data-fr="En chiffres" data-en="By the numbers">En chiffres</p>
+    <h2 class="sec-title" data-fr="Ce que vous gagnez avec une boutique WhatsApp" data-en="What you gain with a WhatsApp store">Ce que vous gagnez avec une boutique WhatsApp</h2>
+    <div class="counter-grid">
+
+      <div class="counter-card">
+        <div class="counter-icon">🛒</div>
+        <div><span class="counter-num" data-target="3">0</span><span class="counter-suffix">x</span></div>
+        <div class="counter-label" data-fr="Plus de commandes vs bouche-à-oreille" data-en="More orders vs word-of-mouth">Plus de commandes vs bouche-à-oreille</div>
+        <span class="counter-trend">↑ Ventes</span>
+      </div>
+
+      <div class="counter-card">
+        <div class="counter-icon">⏱️</div>
+        <div><span class="counter-num" data-target="72">0</span><span class="counter-suffix">h</span></div>
+        <div class="counter-label" data-fr="Délai de livraison maximum" data-en="Maximum delivery time">Délai de livraison maximum</div>
+        <span class="counter-trend">Livraison rapide</span>
+      </div>
+
+      <div class="counter-card">
+        <div class="counter-icon">📱</div>
+        <div><span class="counter-num" data-target="100">0</span><span class="counter-suffix">%</span></div>
+        <div class="counter-label" data-fr="Des commandes reçues sur WhatsApp" data-en="Orders received on WhatsApp">Des commandes reçues sur WhatsApp</div>
+        <span class="counter-trend">↑ Conversion</span>
+      </div>
+
+      <div class="counter-card">
+        <div class="counter-icon">💰</div>
+        <div><span class="counter-num" data-target="0">0</span><span class="counter-suffix">€</span></div>
+        <div class="counter-label" data-fr="De frais mensuels ou d'abonnement" data-en="Monthly fees or subscription">De frais mensuels ou d'abonnement</div>
+        <span class="counter-trend">Paiement unique</span>
+      </div>
+
+      <div class="counter-card">
+        <div class="counter-icon">🌍</div>
+        <div><span class="counter-num" data-target="7">0</span><span class="counter-suffix">+</span></div>
+        <div class="counter-label" data-fr="Secteurs d'activité couverts" data-en="Business sectors covered">Secteurs d'activité couverts</div>
+        <span class="counter-trend">Tous secteurs</span>
+      </div>
+
+      <div class="counter-card">
+        <div class="counter-icon">⭐</div>
+        <div><span class="counter-num" data-target="24">0</span><span class="counter-suffix">h</span></div>
+        <div class="counter-label" data-fr="Délai de réponse garanti" data-en="Guaranteed response time">Délai de réponse garanti</div>
+        <span class="counter-trend">Support réactif</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- SERVICES -->
 <div class="svc-bg" id="services">
   <div class="svc-inner">
@@ -308,7 +360,7 @@ var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isInters
         <div class="svc-icon">🧴</div>
         <div class="svc-title">Beauté & Cosmétiques</div>
         <div class="svc-desc">Crèmes, parfums, soins — mettez vos produits en valeur avec des fiches attractives et des boutons de commande directs.</div>
-        <div class="svc-tags"><span class="svc-tag">Plus populaire 🔥</span><span class="svc-tag">Jusqu'à 20 produits</span></div>
+        <div class="svc-tags"><span class="svc-tag">Plus populaire 🔥</span><span class="svc-tag">Jusqu'à 15 produits</span></div>
         <div class="svc-price">Dès 70€ <small>· paiement unique</small></div>
       </div>
 
@@ -479,7 +531,7 @@ var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isInters
         <div class="prc-amount">70€ <small data-fr="paiement unique" data-en="one-time">paiement unique</small></div>
         <hr class="pdiv"/>
         <ul class="prc-feat">
-          <li><span class="check">✓</span> <span data-fr="Jusqu'à 20 produits" data-en="Up to 20 products">Jusqu'à 20 produits</span></li>
+          <li><span class="check">✓</span> <span data-fr="Jusqu'à 15 produits" data-en="Up to 20 products">Jusqu'à 15 produits</span></li>
           <li><span class="check">✓</span> <span data-fr="Photos & boutons WhatsApp" data-en="Photos & WhatsApp buttons">Photos & boutons WhatsApp</span></li>
           <li><span class="check">✓</span> <span data-fr="Design personnalisé" data-en="Custom design">Design personnalisé</span></li>
           <li><span class="check">✓</span> <span data-fr="Hébergement inclus" data-en="Hosting included">Hébergement inclus</span></li>
@@ -493,15 +545,17 @@ var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isInters
         <div class="pop-badge" data-fr="⭐ Recommandé" data-en="⭐ Recommended">⭐ Recommandé</div>
         <div class="prc-name" data-fr="Pro" data-en="Pro">Pro</div>
         <div class="prc-desc" data-fr="Pour les boutiques sérieuses" data-en="For serious businesses">Pour les boutiques sérieuses</div>
-        <div class="prc-amount">120€ <small data-fr="paiement unique" data-en="one-time">paiement unique</small></div>
+        <div class="prc-amount">100€ <small data-fr="paiement unique" data-en="one-time">paiement unique</small></div>
         <hr class="pdiv"/>
         <ul class="prc-feat">
-          <li><span class="check">✓</span> <span data-fr="Jusqu'à 50 produits" data-en="Up to 50 products">Jusqu'à 50 produits</span></li>
+          <li><span class="check">✓</span> <span data-fr="Jusqu'à 30 produits" data-en="Up to 50 products">Jusqu'à 30 produits</span></li>
           <li><span class="check">✓</span> <span data-fr="Aide à configurer votre domaine" data-en="Help configuring your domain">Aide à configurer votre domaine</span></li>
           <li><span class="check">✓</span> <span data-fr="Filtres par catégorie" data-en="Category filters">Filtres par catégorie</span></li>
           <li><span class="check">✓</span> <span data-fr="Design premium" data-en="Premium design">Design premium</span></li>
           <li><span class="check">✓</span> <span data-fr="Livraison en 72h max" data-en="Delivered in 72h max">Livraison en 72h max</span></li>
           <li><span class="check">✓</span> <span data-fr="3 modifications gratuites" data-en="3 free revisions">3 modifications gratuites</span></li>
+          
+          
         </ul>
         <a class="prc-btn" href="https://wa.me/22891547843?text=Bonjour%2C+je+veux+le+forfait+Pro+120%E2%82%AC" data-fr="Démarrer →" data-en="Get Started →">Démarrer →</a>
       </div>
@@ -536,7 +590,7 @@ var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isInters
           <span data-fr="💰 Combien ça coûte ?" data-en="💰 How much does it cost?">💰 Combien ça coûte ?</span>
           <span class="faq-icon">+</span>
         </div>
-        <div class="faq-a" data-fr="Dès 70€ paiement unique pour le forfait Essentiel. Pas d'abonnement, pas de frais cachés. Le forfait Pro est à 120€ avec un domaine personnalisé inclus." data-en="From 70€ one-time for the Essential plan. No subscription, no hidden fees. The Pro plan is 120€ with a custom domain included.">Dès 70€ paiement unique pour le forfait Essentiel. Pas d'abonnement, pas de frais cachés. Le forfait Pro est à 120€ avec un domaine personnalisé inclus.</div>
+        <div class="faq-a" data-fr="Dès 70€ paiement unique pour le forfait Essentiel. Pas d'abonnement, pas de frais cachés. Le forfait Pro est à 100€ avec un domaine personnalisé inclus." data-en="From 70€ one-time for the Essential plan. No subscription, no hidden fees. The Pro plan is 100€ with a custom domain included.">Dès 70€ paiement unique pour le forfait Essentiel. Pas d'abonnement, pas de frais cachés. Le forfait Pro est à 100€ avec un domaine personnalisé inclus.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
@@ -550,7 +604,7 @@ var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isInters
           <span data-fr="🛍️ Combien de produits ?" data-en="🛍️ How many products?">🛍️ Combien de produits ?</span>
           <span class="faq-icon">+</span>
         </div>
-        <div class="faq-a" data-fr="20 produits avec le forfait Essentiel, 50 avec le Pro. Pour plus, contactez-nous pour un devis personnalisé." data-en="20 products with Essential, 50 with Pro. For more, contact us for a custom quote.">20 produits avec le forfait Essentiel, 50 avec le Pro. Pour plus, contactez-nous pour un devis personnalisé.</div>
+        <div class="faq-a" data-fr="15 produits avec le forfait Essentiel, 30 avec le Pro. Pour plus, contactez-nous pour un devis personnalisé." data-en="20 products with Essential, 50 with Pro. For more, contact us for a custom quote.">15 produits avec le forfait Essentiel, 30 avec le Pro. Pour plus, contactez-nous pour un devis personnalisé.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
@@ -596,7 +650,7 @@ var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isInters
   <div class="footer-inner">
     <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(255,255,255,.6);font-weight:600">✦ BoutiquePro</div>
     <div data-fr="Service de création de boutiques WhatsApp — Livraison en 72h max · Paiement unique" data-en="WhatsApp store creation service — 72h max delivery · One-time payment">Service de création de boutiques WhatsApp — Livraison en 72h max · Paiement unique</div>
-    <div><a href="mailto:samuelesso846@gmail.com">samuelesso846@gmail.com</a></div>
+    <div><a href="mailto:samuelesso846@gmail.com">✉️ Email</a></div>
     <div style="margin-top:.4rem;opacity:.5;font-size:.75rem">© 2025 BoutiquePro · <span data-fr="Tous droits réservés" data-en="All rights reserved">Tous droits réservés</span></div>
   </div>
 </footer>
@@ -605,6 +659,28 @@ var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isInters
 <a class="float-wa" href="https://wa.me/22891547843?text=Bonjour%2C+je+veux+ma+boutique+%F0%9F%9B%92" target="_blank" title="WhatsApp">💬</a>
 
 <script>
+
+// ── COUNTER ANIMATION ──
+function animateCounters(){
+  document.querySelectorAll('.counter-num').forEach(el=>{
+    const target=+el.dataset.target;
+    if(target===0){el.textContent='0';return}
+    const duration=1800;
+    const step=target/60;
+    let current=0;
+    const timer=setInterval(()=>{
+      current+=step;
+      if(current>=target){current=target;clearInterval(timer)}
+      el.textContent=Math.floor(current);
+    },duration/60);
+  });
+}
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){animateCounters();observer.disconnect()}});
+},{threshold:0.3});
+const counterSection=document.querySelector('.counter-bg');
+if(counterSection) observer.observe(counterSection);
+
 // ── LANGUAGE TOGGLE ──
 function setLang(lang){
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
@@ -633,5 +709,108 @@ function toggleFaq(el){
   if(!wasOpen) item.classList.add('open');
 }
 </script>
+
+<!-- ADMIN DASHBOARD -->
+<div id="admin-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:20px;padding:32px;max-width:420px;width:90%;max-height:90vh;overflow-y:auto">
+
+    <!-- LOGIN -->
+    <div id="admin-login">
+      <div style="text-align:center;margin-bottom:24px">
+        <div style="font-size:2rem">🔐</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#1C3D35;margin-top:8px">Espace Client</h3>
+        <p style="font-size:.85rem;color:#6B6560;margin-top:4px">Accès réservé au propriétaire</p>
+      </div>
+      <input id="admin-pwd" type="password" placeholder="Mot de passe" style="width:100%;padding:12px 16px;border:2px solid #E0D5C0;border-radius:10px;font-size:1rem;font-family:'DM Sans',sans-serif;outline:none;margin-bottom:12px"/>
+      <button onclick="checkPwd()" style="width:100%;background:#1C3D35;color:#fff;padding:13px;border-radius:10px;border:none;font-size:1rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">Se connecter</button>
+      <p id="login-err" style="color:#e53935;font-size:.82rem;text-align:center;margin-top:8px;display:none">Mot de passe incorrect</p>
+      <button onclick="closeAdmin()" style="width:100%;background:transparent;color:#6B6560;padding:10px;border:none;font-size:.85rem;cursor:pointer;margin-top:8px">Annuler</button>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="admin-dash" style="display:none">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#1C3D35">📊 Mes commandes</h3>
+        <button onclick="logout()" style="background:transparent;border:1px solid #E0D5C0;color:#6B6560;padding:5px 12px;border-radius:20px;font-size:.75rem;cursor:pointer">Déconnexion</button>
+      </div>
+
+      <!-- Stats -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
+        <div style="background:#F0E8D2;border-radius:12px;padding:16px;text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:#1C3D35" id="stat-month">0</div>
+          <div style="font-size:.75rem;color:#6B6560">Ce mois-ci</div>
+        </div>
+        <div style="background:#E8F5ED;border-radius:12px;padding:16px;text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:#1C3D35" id="stat-total">0</div>
+          <div style="font-size:.75rem;color:#6B6560">Total commandes</div>
+        </div>
+      </div>
+
+      <!-- Add order -->
+      <div style="background:#FFFBF4;border:1px solid #E0D5C0;border-radius:12px;padding:16px;margin-bottom:16px">
+        <p style="font-size:.85rem;font-weight:600;color:#1C3D35;margin-bottom:10px">➕ Ajouter une commande</p>
+        <input id="order-product" placeholder="Nom du produit" style="width:100%;padding:9px 12px;border:1px solid #E0D5C0;border-radius:8px;font-size:.85rem;margin-bottom:8px;font-family:'DM Sans',sans-serif"/>
+        <input id="order-amount" placeholder="Montant (FCFA)" type="number" style="width:100%;padding:9px 12px;border:1px solid #E0D5C0;border-radius:8px;font-size:.85rem;margin-bottom:8px;font-family:'DM Sans',sans-serif"/>
+        <button onclick="addOrder()" style="width:100%;background:#25D366;color:#fff;padding:10px;border-radius:8px;border:none;font-size:.88rem;font-weight:600;cursor:pointer">Enregistrer la commande</button>
+      </div>
+
+      <!-- Orders list -->
+      <div>
+        <p style="font-size:.85rem;font-weight:600;color:#1C3D35;margin-bottom:10px">📋 Historique</p>
+        <div id="orders-list" style="max-height:200px;overflow-y:auto"></div>
+        <button onclick="clearOrders()" style="margin-top:10px;background:transparent;color:#e53935;border:1px solid #e53935;padding:6px 14px;border-radius:20px;font-size:.75rem;cursor:pointer">Effacer tout</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Admin trigger (hidden in footer) -->
+<div style="text-align:center;padding:8px;background:#080f0c">
+  <span onclick="openAdmin()" style="font-size:.65rem;color:rgba(255,255,255,.1);cursor:pointer;user-select:none">⬡</span>
+</div>
+
+<script>
+const PASS = 'boutique2025';
+function openAdmin(){document.getElementById('admin-overlay').style.display='flex';}
+function closeAdmin(){document.getElementById('admin-overlay').style.display='none';document.getElementById('login-err').style.display='none';document.getElementById('admin-pwd').value='';}
+function checkPwd(){
+  if(document.getElementById('admin-pwd').value===PASS){
+    document.getElementById('admin-login').style.display='none';
+    document.getElementById('admin-dash').style.display='block';
+    loadOrders();
+  } else {
+    document.getElementById('login-err').style.display='block';
+  }
+}
+function logout(){document.getElementById('admin-login').style.display='block';document.getElementById('admin-dash').style.display='none';closeAdmin();}
+function getOrders(){return JSON.parse(localStorage.getItem('bp_orders')||'[]');}
+function saveOrders(o){localStorage.setItem('bp_orders',JSON.stringify(o));}
+function addOrder(){
+  var p=document.getElementById('order-product').value.trim();
+  var a=document.getElementById('order-amount').value.trim();
+  if(!p)return;
+  var orders=getOrders();
+  orders.unshift({product:p,amount:a||'—',date:new Date().toLocaleDateString('fr-FR'),month:new Date().getMonth()+'_'+new Date().getFullYear()});
+  saveOrders(orders);
+  document.getElementById('order-product').value='';
+  document.getElementById('order-amount').value='';
+  loadOrders();
+}
+function loadOrders(){
+  var orders=getOrders();
+  var now=new Date();
+  var thisMonth=now.getMonth()+'_'+now.getFullYear();
+  var monthCount=orders.filter(function(o){return o.month===thisMonth;}).length;
+  document.getElementById('stat-month').textContent=monthCount;
+  document.getElementById('stat-total').textContent=orders.length;
+  var html=orders.length?orders.map(function(o){
+    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #F0E8D2;font-size:.82rem"><span>'+o.product+'</span><span style="color:#C8973A;font-weight:600">'+o.amount+' — '+o.date+'</span></div>';
+  }).join(''):'<p style="font-size:.82rem;color:#6B6560;text-align:center;padding:16px">Aucune commande enregistrée</p>';
+  document.getElementById('orders-list').innerHTML=html;
+}
+function clearOrders(){if(confirm('Effacer toutes les commandes ?')){saveOrders([]);loadOrders();}}
+document.getElementById('admin-pwd').addEventListener('keypress',function(e){if(e.key==='Enter')checkPwd();});
+</script>
+
 </body>
 </html>
